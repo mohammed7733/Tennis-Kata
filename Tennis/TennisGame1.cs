@@ -36,27 +36,40 @@ namespace Tennis
             }
             else
             {
-                for (var i = 1; i < 3; i++)
+                score = GetBelow4Score(score);
+            }
+            return score;
+        }
+
+        private string GetBelow4Score(string score)
+        {
+            int tempScore;
+            for (var i = 1; i < 3; i++)
+            {
+                if (i == 1) tempScore = m_score1;
+                else
                 {
-                    if (i == 1) tempScore = m_score1;
-                    else { score += "-"; tempScore = m_score2; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
+                    score += "-";
+                    tempScore = m_score2;
+                }
+
+                switch (tempScore)
+                {
+                    case 0:
+                        score += "Love";
+                        break;
+                    case 1:
+                        score += "Fifteen";
+                        break;
+                    case 2:
+                        score += "Thirty";
+                        break;
+                    case 3:
+                        score += "Forty";
+                        break;
                 }
             }
+
             return score;
         }
 
