@@ -32,7 +32,7 @@ namespace Tennis
             else if (m_score1 >= 4 || m_score2 >= 4)
             {
                 var minusResult = m_score1 - m_score2;
-                GetAbove4Score(minusResult, out score);
+                score = GetAbove4Score(minusResult);
             }
             else
             {
@@ -60,9 +60,9 @@ namespace Tennis
             return score;
         }
 
-        private static string GetAbove4Score(int minusResult, out string score)
+        private static string GetAbove4Score(int minusResult)
         {
-            return score = minusResult switch
+            return minusResult switch
             {
                 1 => "Advantage player1",
                 -1 => "Advantage player2",
