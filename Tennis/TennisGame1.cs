@@ -65,7 +65,7 @@ namespace Tennis
 
         private string DrawScore()
         {
-            if (_player1.Score().Value() >= 3)
+            if (_player1.Score().IsDeuceScore())
                 return "Deuce";
             return _player1.Score().Name() + "-All";
         }
@@ -130,12 +130,17 @@ namespace Tennis
 
         public bool IsAboveOrEqual4()
         {
-            return Value() >= 4;
+            return _value >= 4;
         }
 
         public bool IsAdvantageScore(Score player2Score)
         {
-            return Math.Abs(Value() - player2Score.Value()) == 1;
+            return Math.Abs(_value - player2Score.Value()) == 1;
+        }
+
+        public bool IsDeuceScore()
+        {
+            return _value >= 3;
         }
     }
 }
