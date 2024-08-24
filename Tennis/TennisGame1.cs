@@ -24,22 +24,32 @@ namespace Tennis
         public string GetScore()
         {
             var score = "";
-            if (player1Score == player2Score)
+            if (IsDrawScore())
             {
-                score = GetDrawScore();
+                score = DrawScore();
             }
-            else if (player1Score >= 4 || player2Score >= 4)
+            else if (IsAbove4Score())
             {
-                score = GetAbove4Score(player1Score - player2Score);
+                score = Above4Score(player1Score - player2Score);
             }
             else
             {
-                score = GetBelow4Score(score);
+                score = Below4Score(score);
             }
             return score;
         }
 
-        private string GetBelow4Score(string score)
+        private bool IsAbove4Score()
+        {
+            return player1Score >= 4 || player2Score >= 4;
+        }
+
+        private bool IsDrawScore()
+        {
+            return player1Score == player2Score;
+        }
+
+        private string Below4Score(string score)
         {
             int tempScore;
             for (var i = 1; i < 3; i++)
@@ -71,7 +81,7 @@ namespace Tennis
             return score;
         }
 
-        private static string GetAbove4Score(int minusResult)
+        private static string Above4Score(int minusResult)
         {
             return minusResult switch
             {
@@ -82,7 +92,7 @@ namespace Tennis
             };
         }
 
-        private string GetDrawScore()
+        private string DrawScore()
         {
             string score;
             switch (player1Score)
