@@ -23,16 +23,14 @@ namespace Tennis
 
         public string GetScore()
         {
-            string score = "";
-            var tempScore = 0;
+            var score = "";
             if (m_score1 == m_score2)
             {
                 score = GetDrawScore();
             }
             else if (m_score1 >= 4 || m_score2 >= 4)
             {
-                var minusResult = m_score1 - m_score2;
-                score = GetAbove4Score(minusResult);
+                score = GetAbove4Score(m_score1 - m_score2);
             }
             else
             {
