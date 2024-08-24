@@ -1,0 +1,12 @@
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.AssemblyInfoInputs.cache
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.AssemblyInfo.cs
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.csproj.CoreCompileInputs.cache
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.sourcelink.json
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/bin/Debug/net8.0/Tennis.deps.json
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/bin/Debug/net8.0/Tennis.dll
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/bin/Debug/net8.0/Tennis.pdb
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.dll
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/refint/Tennis.dll
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/Tennis.pdb
+/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/obj/Debug/net8.0/ref/Tennis.dll

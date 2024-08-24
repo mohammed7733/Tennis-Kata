@@ -86,6 +86,15 @@ namespace Tennis
             _name = name;
         }
 
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public void WonPoint()
+        {
+            _score.Increment();
+        }
     }
 
     public class Score
@@ -95,6 +104,22 @@ namespace Tennis
         public Score()
         {
             _value = 0;
+        }
+
+        public void Increment()
+        {
+            _value++;
+        }
+
+        public string Name()
+        {
+            return _value switch
+            {
+                0 => "Love",
+                1 => "Fifteen",
+                2 => "Thirty",
+                _ => "Forty"
+            };
         }
     }
 }

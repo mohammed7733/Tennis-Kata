@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ea7d9c7-0600-47f3-adf2-ffbc41b5970e" name="Changes" comment="refactor above4Score">
+      <change beforePath="$PROJECT_DIR$/Tennis/TennisGame1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tennis/TennisGame1.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="67b496c3-bed4-4500-b196-1a35e4d3bb1d" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis/TennisGame1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2l7Zsz9UhkXe66OH5jbzRLBaIzu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "refactor/tennis1",
+    "last_opened_file_path": "/Users/mohammed.essam/RiderProjects/Tennis-Kata-New/Tennis-Refactoring-Kata.sln",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/mohammed.essam/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
+      "/Users/mohammed.essam/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
+      "/Users/mohammed.essam/.local/share/Symbols/src"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ea7d9c7-0600-47f3-adf2-ffbc41b5970e" name="Changes" comment="" />
+      <created>1724533285587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724533285587</updated>
+      <workItem from="1724533286617" duration="571000" />
+      <workItem from="1724533864050" duration="912000" />
+      <workItem from="1724534784525" duration="2892000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1724533432465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724533432465</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Xm">
+      <option name="closed" value="true" />
+      <created>1724534830520</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724534830520</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1724535144898</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724535144898</updated>
+    </task>
+    <task id="LOCAL-00004" summary="xm">
+      <option name="closed" value="true" />
+      <created>1724535192469</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724535192469</updated>
+    </task>
+    <task id="LOCAL-00005" summary="inline">
+      <option name="closed" value="true" />
+      <created>1724535240327</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724535240327</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rename">
+      <option name="closed" value="true" />
+      <created>1724535335118</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724535335118</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xm and rename methods">
+      <option name="closed" value="true" />
+      <created>1724536468043</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724536468043</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor and inline">
+      <option name="closed" value="true" />
+      <created>1724536605161</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724536605161</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1724537323188</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724537323188</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor below4Score">
+      <option name="closed" value="true" />
+      <created>1724537408194</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724537408194</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor above4Score">
+      <option name="closed" value="true" />
+      <created>1724537638662</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724537638662</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Xm" />
+    <MESSAGE value="xm" />
+    <MESSAGE value="inline" />
+    <MESSAGE value="rename" />
+    <MESSAGE value="xm and rename methods" />
+    <MESSAGE value="refactor and inline" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="refactor below4Score" />
+    <MESSAGE value="refactor above4Score" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor above4Score" />
+  </component>
+</project>
