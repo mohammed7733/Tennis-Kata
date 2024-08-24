@@ -29,7 +29,7 @@ namespace Tennis
         {
             if (IsDrawScore())
             {
-                return DrawScore();
+                return _player1.Score().DrawScore();
             }
 
             if (IsAbove4Score())
@@ -62,13 +62,6 @@ namespace Tennis
         private Player GetHigherScorePlayer() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
 
         private bool IsAdvantageScore() => _player1.Score().IsAdvantageScore(_player2.Score());
-
-        private string DrawScore()
-        {
-            if (_player1.Score().IsDeuceScore())
-                return "Deuce";
-            return _player1.Score().Name() + "-All";
-        }
     }
 
     public class Player
@@ -141,6 +134,13 @@ namespace Tennis
         public bool IsDeuceScore()
         {
             return _value >= 3;
+        }
+
+        public string DrawScore()
+        {
+            if (IsDeuceScore())
+                return "Deuce";
+            return Name() + "-All";
         }
     }
 }
