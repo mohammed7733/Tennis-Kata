@@ -1,3 +1,5 @@
+using System;
+
 namespace Tennis
 {
     public class TennisGame1 : ITennisGame
@@ -6,12 +8,14 @@ namespace Tennis
         private int player2Score = 0;
         private string player1Name;
         private string player2Name;
+        private string winner;
         private string[] scores = { "Love", "Fifteen", "Thirty", "Forty" };
 
         public TennisGame1(string player1Name, string player2Name)
         {
             this.player1Name = player1Name;
             this.player2Name = player2Name;
+            this.winner = player1Name;
         }
 
         public void WonPoint(string playerName)
@@ -20,6 +24,7 @@ namespace Tennis
                 player1Score += 1;
             else
                 player2Score += 1;
+            winner = player1Score >= player2Score ? player1Name : player2Name;
         }
 
         public string GetScore()
@@ -49,14 +54,11 @@ namespace Tennis
 
         private string Below4Score() => scores[player1Score] + "-" + scores[player2Score];
 
-        private string Above4Score() =>
-            (player1Score - player2Score) switch
-            {
-                1 => "Advantage player1",
-                -1 => "Advantage player2",
-                >= 2 => "Win for player1",
-                _ => "Win for player2"
-            };
+        private string Above4Score()
+        {
+            var difference = Math.Abs(player1Score - player2Score);
+            return difference == 1 ? "Advantage " + winner : "Win for " + winner;
+        }
 
         private string DrawScore()
         {
