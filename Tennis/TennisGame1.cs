@@ -6,11 +6,9 @@ namespace Tennis
     {
         private Player _player1;
         private Player _player2;
-        private Player winner;
 
         public TennisGame1(string player1Name, string player2Name)
         {
-            this.winner = _player1;
             _player1 = new Player(player1Name);
             _player2 = new Player(player2Name);
         }
@@ -25,8 +23,6 @@ namespace Tennis
             {
                 _player2.WonPoint();
             }
-
-            winner = _player1.Score().Value() >= _player2.Score().Value() ? _player1 : _player2;
         }
 
         public string GetScore()
@@ -59,9 +55,11 @@ namespace Tennis
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
 
-        private string WinnerScore() => "Win for " + winner.GetName();
+        private string WinnerScore() => "Win for " + GetWinner().GetName();
 
-        private string AdvantageScore() => "Advantage " + winner.GetName();
+        private string AdvantageScore() => "Advantage " + GetWinner().GetName();
+
+        private Player GetWinner() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
 
         private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - _player2.Score().Value()) == 1;
 
@@ -98,16 +96,16 @@ namespace Tennis
         {
             return _score;
         }
+
+        public bool HasHigherScore(Player player2)
+        {
+            return Score().Value() > player2.Score().Value();
+        }
     }
 
     public class Score
     {
         private int _value;
-
-        public Score()
-        {
-            _value = 0;
-        }
 
         public void Increment()
         {
