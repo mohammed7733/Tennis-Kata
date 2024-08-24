@@ -55,11 +55,11 @@ namespace Tennis
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
 
-        private string WinnerScore() => "Win for " + GetWinner().GetName();
+        private string WinnerScore() => "Win for " + GetHigherScorePlayer().GetName();
 
-        private string AdvantageScore() => "Advantage " + GetWinner().GetName();
+        private string AdvantageScore() => "Advantage " + GetHigherScorePlayer().GetName();
 
-        private Player GetWinner() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
+        private Player GetHigherScorePlayer() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
 
         private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - _player2.Score().Value()) == 1;
 
