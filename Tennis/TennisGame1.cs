@@ -9,7 +9,6 @@ namespace Tennis
         private string player1Name;
         private string player2Name;
         private string winner;
-        private string[] scores = { "Love", "Fifteen", "Thirty", "Forty" };
 
         public TennisGame1(string player1Name, string player2Name)
         {
@@ -59,7 +58,7 @@ namespace Tennis
             return _player1.Score().Value() == _player2.Score().Value();
         }
 
-        private string Below4Score() => scores[_player1.Score().Value()] + "-" + scores[_player2.Score().Value()];
+        private string Below4Score() => _player1.Score().Name() + "-" + _player2.Score().Name();
 
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
@@ -74,7 +73,7 @@ namespace Tennis
         {
             if (_player1.Score().Value() >= 3)
                 return "Deuce";
-            return scores[_player1.Score().Value()] + "-All";
+            return _player1.Score().Name() + "-All";
         }
     }
 
