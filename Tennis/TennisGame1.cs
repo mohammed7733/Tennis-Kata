@@ -54,11 +54,8 @@ namespace Tennis
 
         private string Below4Score() => scores[player1Score] + "-" + scores[player2Score];
 
-        private string Above4Score()
-        {
-            var difference = Math.Abs(player1Score - player2Score);
-            return difference == 1 ? "Advantage " + winner : "Win for " + winner;
-        }
+        private string Above4Score() =>
+            Math.Abs(player1Score - player2Score) == 1 ? "Advantage " + winner : "Win for " + winner;
 
         private string DrawScore()
         {
