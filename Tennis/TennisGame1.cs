@@ -4,7 +4,6 @@ namespace Tennis
 {
     public class TennisGame1 : ITennisGame
     {
-        private int player1Score = 0;
         private int player2Score = 0;
         private Player _player1;
         private Player _player2;
@@ -26,7 +25,6 @@ namespace Tennis
         {
             if (playerName == "player1")
             {
-                player1Score += 1;
                 _player1.WonPoint();
             }
             else
@@ -35,7 +33,7 @@ namespace Tennis
                 _player2.WonPoint();
             }
 
-            winner = player1Score >= player2Score ? player1Name : player2Name;
+            winner = _player1.Score().Value() >= player2Score ? player1Name : player2Name;
         }
 
         public string GetScore()
@@ -55,15 +53,15 @@ namespace Tennis
 
         private bool IsAbove4Score()
         {
-            return player1Score >= 4 || player2Score >= 4;
+            return _player1.Score().Value() >= 4 || player2Score >= 4;
         }
 
         private bool IsDrawScore()
         {
-            return player1Score == player2Score;
+            return _player1.Score().Value() == player2Score;
         }
 
-        private string Below4Score() => scores[player1Score] + "-" + scores[player2Score];
+        private string Below4Score() => scores[_player1.Score().Value()] + "-" + scores[player2Score];
 
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
@@ -72,13 +70,13 @@ namespace Tennis
 
         private string AdvantageScore() => "Advantage " + winner;
 
-        private bool IsAdvantageScore() => Math.Abs(player1Score - player2Score) == 1;
+        private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - player2Score) == 1;
 
         private string DrawScore()
         {
-            if (player1Score >= 3)
+            if (_player1.Score().Value() >= 3)
                 return "Deuce";
-            return scores[player1Score] + "-All";
+            return scores[_player1.Score().Value()] + "-All";
         }
     }
 
@@ -101,6 +99,11 @@ namespace Tennis
         public void WonPoint()
         {
             _score.Increment();
+        }
+
+        public Score Score()
+        {
+            return _score;
         }
     }
 
@@ -127,6 +130,11 @@ namespace Tennis
                 2 => "Thirty",
                 _ => "Forty"
             };
+        }
+
+        public int Value()
+        {
+            return _value;
         }
     }
 }
