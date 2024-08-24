@@ -4,7 +4,6 @@ namespace Tennis
 {
     public class TennisGame1 : ITennisGame
     {
-        private int player2Score = 0;
         private Player _player1;
         private Player _player2;
         private string player1Name;
@@ -29,11 +28,10 @@ namespace Tennis
             }
             else
             {
-                player2Score += 1;
                 _player2.WonPoint();
             }
 
-            winner = _player1.Score().Value() >= player2Score ? player1Name : player2Name;
+            winner = _player1.Score().Value() >= _player2.Score().Value() ? player1Name : player2Name;
         }
 
         public string GetScore()
@@ -53,15 +51,15 @@ namespace Tennis
 
         private bool IsAbove4Score()
         {
-            return _player1.Score().Value() >= 4 || player2Score >= 4;
+            return _player1.Score().Value() >= 4 || _player2.Score().Value() >= 4;
         }
 
         private bool IsDrawScore()
         {
-            return _player1.Score().Value() == player2Score;
+            return _player1.Score().Value() == _player2.Score().Value();
         }
 
-        private string Below4Score() => scores[_player1.Score().Value()] + "-" + scores[player2Score];
+        private string Below4Score() => scores[_player1.Score().Value()] + "-" + scores[_player2.Score().Value()];
 
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
@@ -70,7 +68,7 @@ namespace Tennis
 
         private string AdvantageScore() => "Advantage " + winner;
 
-        private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - player2Score) == 1;
+        private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - _player2.Score().Value()) == 1;
 
         private string DrawScore()
         {
