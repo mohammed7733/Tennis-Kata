@@ -47,38 +47,7 @@ namespace Tennis
             return player1Score == player2Score;
         }
 
-        private string Below4Score()
-        {
-            int tempScore;
-            var score = "";
-            for (var i = 1; i < 3; i++)
-            {
-                if (i == 1) tempScore = player1Score;
-                else
-                {
-                    score += "-";
-                    tempScore = player2Score;
-                }
-
-                switch (tempScore)
-                {
-                    case 0:
-                        score += "Love";
-                        break;
-                    case 1:
-                        score += "Fifteen";
-                        break;
-                    case 2:
-                        score += "Thirty";
-                        break;
-                    case 3:
-                        score += "Forty";
-                        break;
-                }
-            }
-
-            return score;
-        }
+        private string Below4Score() => scores[player1Score] + "-" + scores[player2Score];
 
         private string Above4Score() =>
             (player1Score - player2Score) switch
