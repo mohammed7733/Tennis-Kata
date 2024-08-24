@@ -8,13 +8,13 @@ namespace Tennis
         private Player _player2;
         private string player1Name;
         private string player2Name;
-        private string winner;
+        private Player winner;
 
         public TennisGame1(string player1Name, string player2Name)
         {
             this.player1Name = player1Name;
             this.player2Name = player2Name;
-            this.winner = player1Name;
+            this.winner = _player1;
             _player1 = new Player(player1Name);
             _player2 = new Player(player2Name);
         }
@@ -30,7 +30,7 @@ namespace Tennis
                 _player2.WonPoint();
             }
 
-            winner = _player1.Score().Value() >= _player2.Score().Value() ? player1Name : player2Name;
+            winner = _player1.Score().Value() >= _player2.Score().Value() ? _player1 : _player2;
         }
 
         public string GetScore()
@@ -63,9 +63,9 @@ namespace Tennis
         private string Above4Score() =>
             IsAdvantageScore() ? AdvantageScore() : WinnerScore();
 
-        private string WinnerScore() => "Win for " + winner;
+        private string WinnerScore() => "Win for " + winner.GetName();
 
-        private string AdvantageScore() => "Advantage " + winner;
+        private string AdvantageScore() => "Advantage " + winner.GetName();
 
         private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - _player2.Score().Value()) == 1;
 
