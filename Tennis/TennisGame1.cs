@@ -6,6 +6,7 @@ namespace Tennis
         private int player2Score = 0;
         private string player1Name;
         private string player2Name;
+        private string[] scores = { "Love", "Fifteen", "Thirty", "Forty" };
 
         public TennisGame1(string player1Name, string player2Name)
         {
@@ -30,7 +31,7 @@ namespace Tennis
 
             if (IsAbove4Score())
             {
-                return Above4Score(player1Score - player2Score);
+                return Above4Score();
             }
 
             return Below4Score();
@@ -79,37 +80,20 @@ namespace Tennis
             return score;
         }
 
-        private static string Above4Score(int minusResult)
-        {
-            return minusResult switch
+        private string Above4Score() =>
+            (player1Score - player2Score) switch
             {
                 1 => "Advantage player1",
                 -1 => "Advantage player2",
                 >= 2 => "Win for player1",
                 _ => "Win for player2"
             };
-        }
 
         private string DrawScore()
         {
-            string score;
-            switch (player1Score)
-            {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-            }
-
-            return score;
+            if (player1Score >= 3)
+                return "Deuce";
+            return scores[player1Score] + "-All";
         }
     }
 }
