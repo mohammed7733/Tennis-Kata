@@ -6,6 +6,8 @@ namespace Tennis
     {
         private int player1Score = 0;
         private int player2Score = 0;
+        private Player _player1;
+        private Player _player2;
         private string player1Name;
         private string player2Name;
         private string winner;
@@ -16,6 +18,8 @@ namespace Tennis
             this.player1Name = player1Name;
             this.player2Name = player2Name;
             this.winner = player1Name;
+            _player1 = new Player(player1Name);
+            _player2 = new Player(player2Name);
         }
 
         public void WonPoint(string playerName)
@@ -68,6 +72,29 @@ namespace Tennis
             if (player1Score >= 3)
                 return "Deuce";
             return scores[player1Score] + "-All";
+        }
+    }
+
+    public class Player
+    {
+        private Score _score;
+        private string _name;
+
+        public Player(string name)
+        {
+            _score = new Score();
+            _name = name;
+        }
+
+    }
+
+    public class Score
+    {
+        private int _value;
+
+        public Score()
+        {
+            _value = 0;
         }
     }
 }
