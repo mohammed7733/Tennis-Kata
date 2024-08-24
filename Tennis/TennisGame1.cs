@@ -61,7 +61,7 @@ namespace Tennis
 
         private Player GetHigherScorePlayer() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
 
-        private bool IsAdvantageScore() => Math.Abs(_player1.Score().Value() - _player2.Score().Value()) == 1;
+        private bool IsAdvantageScore() => _player1.Score().IsAdvantageScore(_player2.Score());
 
         private string DrawScore()
         {
@@ -131,6 +131,11 @@ namespace Tennis
         public bool IsAboveOrEqual4()
         {
             return Value() >= 4;
+        }
+
+        public bool IsAdvantageScore(Score player2Score)
+        {
+            return Math.Abs(Value() - player2Score.Value()) == 1;
         }
     }
 }
