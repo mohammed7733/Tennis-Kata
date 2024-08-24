@@ -50,7 +50,7 @@ namespace Tennis
 
         private bool IsAbove4Score()
         {
-            return _player1.Score().Value() >= 4 || _player2.Score().Value() >= 4;
+            return _player1.Score().IsAboveOrEqual4() || _player2.Score().IsAboveOrEqual4();
         }
 
         private bool IsDrawScore()
@@ -132,6 +132,11 @@ namespace Tennis
         public int Value()
         {
             return _value;
+        }
+
+        public bool IsAboveOrEqual4()
+        {
+            return Value() >= 4;
         }
     }
 }
