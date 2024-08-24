@@ -6,14 +6,10 @@ namespace Tennis
     {
         private Player _player1;
         private Player _player2;
-        private string player1Name;
-        private string player2Name;
         private Player winner;
 
         public TennisGame1(string player1Name, string player2Name)
         {
-            this.player1Name = player1Name;
-            this.player2Name = player2Name;
             this.winner = _player1;
             _player1 = new Player(player1Name);
             _player2 = new Player(player2Name);
