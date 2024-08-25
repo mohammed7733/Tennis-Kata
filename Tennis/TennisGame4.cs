@@ -49,30 +49,30 @@ public class TennisGame4  : ITennisGame
 }
 
 internal class TennisResult {
-    readonly string _serverScore;
-    readonly string _receiverScore;
+    readonly string _player1Score;
+    readonly string _player2Score;
 
-    public TennisResult(string serverScore, string receiverScore) {
-        _serverScore = serverScore;
-        _receiverScore = receiverScore;
+    public TennisResult(string player1Score, string player2Score) {
+        _player1Score = player1Score;
+        _player2Score = player2Score;
     }
 
     internal string Format() {
-        if ("".Equals(_receiverScore))
-            return _serverScore;
+        if ("".Equals(_player2Score))
+            return _player1Score;
         if (IsDrawScore())
             return DrawScore();
-        return _serverScore + "-" + _receiverScore;
+        return _player1Score + "-" + _player2Score;
     }
 
     private string DrawScore()
     {
-        return _serverScore + "-All";
+        return _player1Score + "-All";
     }
 
     private bool IsDrawScore()
     {
-        return _serverScore.Equals(_receiverScore);
+        return _player1Score.Equals(_player2Score);
     }
 }
 
