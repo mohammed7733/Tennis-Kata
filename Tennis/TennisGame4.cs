@@ -103,18 +103,3 @@ internal class Game : IResultProvider {
         return new TennisResult(Scores[_game.player1Score], Scores[_game.player2Score]);
     }
 }
-
-internal class DefaultResult : IResultProvider {
-
-    private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
-
-    private readonly TennisGame4 _game;
-
-    public DefaultResult(TennisGame4 game) {
-        _game = game;
-    }
-
-    public TennisResult GetResult() {
-        return new TennisResult(Scores[_game.player1Score], Scores[_game.player2Score]);
-    }
-}
