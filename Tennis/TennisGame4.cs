@@ -1,3 +1,5 @@
+using System;
+
 namespace Tennis;
 
 public class TennisGame4  : ITennisGame
@@ -36,10 +38,8 @@ public class TennisGame4  : ITennisGame
             return new TennisResult("Win for " + player1Name, "");
         if(ReceiverHasWon())
             return new TennisResult("Win for " + player2Name, "");
-        if (ServerHasAdvantage())
-            return new TennisResult("Advantage " + player1Name, "");
-        if (ReceiverHasAdvantage())
-            return new TennisResult("Advantage " + player2Name, "");
+        if (IsAdvantageScore())
+            return new TennisResult("Advantage " + playerWithHigherScore(), "");
         return new TennisResult(Scores[player1Score], Scores[player2Score]);
     }
 
@@ -52,6 +52,11 @@ public class TennisGame4  : ITennisGame
         return result.Player1Score + "-" + result.Player2Score;
     }
 
+    private string playerWithHigherScore()
+    {
+        return player1Score >= player2Score ? player1Name : player2Name;
+    }
+
     private static string DrawScore(TennisResult result)
     {
         return result.Player1Score + "-All";
@@ -62,12 +67,8 @@ public class TennisGame4  : ITennisGame
         return player1Score.Equals(player2Score);
     }
 
-    private bool ReceiverHasAdvantage() {
-        return player2Score >= 4 && (player2Score - player1Score) == 1;
-    }
-
-    private bool ServerHasAdvantage() {
-        return player1Score >= 4 && (player1Score - player2Score) == 1;
+    private bool IsAdvantageScore() {
+        return (player1Score >= 4 || player2Score >= 4) && Math.Abs(player1Score - player2Score) == 1;
     }
 
     private bool ReceiverHasWon() {
