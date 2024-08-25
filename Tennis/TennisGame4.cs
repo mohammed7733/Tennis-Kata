@@ -26,7 +26,7 @@ public class TennisGame4  : ITennisGame
         TennisResult result = new Game(this).GetResult();
         if ("".Equals(result.Player2Score))
             return result.Player1Score;
-        if (result.Player1Score.Equals(result.Player2Score))
+        if (player1Score.Equals(player2Score))
             return result.Player1Score + "-All";
         return result.Player1Score + "-" + result.Player2Score;
     }
