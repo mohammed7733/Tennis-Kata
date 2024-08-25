@@ -2,10 +2,10 @@ namespace Tennis;
 
 public class TennisGame4  : ITennisGame
 {
-    internal int player1Score;
-    internal int player2Score;
-    internal readonly string player1Name;
-    internal readonly string player2Name;
+    private int player1Score;
+    private int player2Score;
+    private readonly string player1Name;
+    private readonly string player2Name;
     private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
     public TennisGame4(string player1Name, string player2Name)
@@ -62,33 +62,25 @@ public class TennisGame4  : ITennisGame
         return player1Score.Equals(player2Score);
     }
 
-    internal bool ReceiverHasAdvantage() {
+    private bool ReceiverHasAdvantage() {
         return player2Score >= 4 && (player2Score - player1Score) == 1;
     }
 
-    internal bool ServerHasAdvantage() {
+    private bool ServerHasAdvantage() {
         return player1Score >= 4 && (player1Score - player2Score) == 1;
     }
 
-    internal bool ReceiverHasWon() {
+    private bool ReceiverHasWon() {
         return player2Score >= 4 && (player2Score - player1Score) >= 2;
     }
 
-    internal bool ServerHasWon() {
+    private bool ServerHasWon() {
         return player1Score >= 4 && (player1Score - player2Score) >= 2;
     }
 
-    internal bool IsDeuce() {
+    private bool IsDeuce() {
         return player1Score >= 3 && player2Score >= 3 && (player1Score == player2Score);
     }
 }
 
 internal record TennisResult(string Player1Score, string Player2Score);
-
-internal class Game {
-    private readonly TennisGame4 _game;
-
-    public Game(TennisGame4 game) {
-        _game = game;
-    }
-}
