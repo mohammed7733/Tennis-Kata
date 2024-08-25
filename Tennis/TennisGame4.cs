@@ -25,9 +25,9 @@ public class TennisGame4  : ITennisGame
     {
         TennisResult result = new Deuce(
             this, new Game(
-                    this, new AdvantageServer(
-                        this, new AdvantageReceiver(
-                            this, new DefaultResult(this))))).GetResult();
+                    this, new Advantage(
+                            this, new DefaultResult(this))
+            )).GetResult();
         return result.Format();
     }
 
@@ -134,11 +134,11 @@ internal class GameReceiver : IResultProvider {
     }
 }
 
-internal class AdvantageServer : IResultProvider {
+internal class Advantage : IResultProvider {
     private readonly TennisGame4 _game;
     private readonly IResultProvider _nextResult;
 
-    public AdvantageServer(TennisGame4 game, IResultProvider nextResult) {
+    public Advantage(TennisGame4 game, IResultProvider nextResult) {
         _game = game;
         _nextResult = nextResult;
     }
@@ -146,6 +146,8 @@ internal class AdvantageServer : IResultProvider {
     public TennisResult GetResult() {
         if (_game.ServerHasAdvantage())
             return new TennisResult("Advantage " + _game.player1Name, "");
+        else if (_game.ReceiverHasAdvantage())
+            return new TennisResult("Advantage " + _game.player2Name, "");
         return _nextResult.GetResult();
     }
 }
