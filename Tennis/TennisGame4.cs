@@ -2,23 +2,23 @@ namespace Tennis;
 
 public class TennisGame4  : ITennisGame
 {
-    internal int ServerScore;
-    internal int ReceiverScore;
-    internal readonly string Server;
-    internal readonly string Receiver;
+    internal int player1Score;
+    internal int player2Score;
+    internal readonly string player1Name;
+    internal readonly string player2Name;
 
     public TennisGame4(string player1Name, string player2Name)
     {
-        Server = player1Name;
-        Receiver = player2Name;
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
     }
 
     public void WonPoint(string playerName)
     {
-        if (Server.Equals(playerName))
-            ServerScore += 1;
+        if (player1Name.Equals(playerName))
+            player1Score += 1;
         else
-            ReceiverScore += 1;
+            player2Score += 1;
     }
 
     public string GetScore()
@@ -33,23 +33,23 @@ public class TennisGame4  : ITennisGame
     }
 
     internal bool ReceiverHasAdvantage() {
-        return ReceiverScore >= 4 && (ReceiverScore - ServerScore) == 1;
+        return player2Score >= 4 && (player2Score - player1Score) == 1;
     }
 
     internal bool ServerHasAdvantage() {
-        return ServerScore >= 4 && (ServerScore - ReceiverScore) == 1;
+        return player1Score >= 4 && (player1Score - player2Score) == 1;
     }
 
     internal bool ReceiverHasWon() {
-        return ReceiverScore >= 4 && (ReceiverScore - ServerScore) >= 2;
+        return player2Score >= 4 && (player2Score - player1Score) >= 2;
     }
 
     internal bool ServerHasWon() {
-        return ServerScore >= 4 && (ServerScore - ReceiverScore) >= 2;
+        return player1Score >= 4 && (player1Score - player2Score) >= 2;
     }
 
     internal bool IsDeuce() {
-        return ServerScore >= 3 && ReceiverScore >= 3 && (ServerScore == ReceiverScore);
+        return player1Score >= 3 && player2Score >= 3 && (player1Score == player2Score);
     }
 }
 
@@ -112,7 +112,7 @@ internal class GameServer : IResultProvider {
 
     public TennisResult GetResult() {
         if (_game.ServerHasWon())
-            return new TennisResult("Win for " + _game.Server, "");
+            return new TennisResult("Win for " + _game.player1Name, "");
         return _nextResult.GetResult();
     }
 }
@@ -128,7 +128,7 @@ internal class GameReceiver : IResultProvider {
 
     public TennisResult GetResult() {
         if (_game.ReceiverHasWon())
-            return new TennisResult("Win for " + _game.Receiver, "");
+            return new TennisResult("Win for " + _game.player2Name, "");
         return _nextResult.GetResult();
     }
 }
@@ -144,7 +144,7 @@ internal class AdvantageServer : IResultProvider {
 
     public TennisResult GetResult() {
         if (_game.ServerHasAdvantage())
-            return new TennisResult("Advantage " + _game.Server, "");
+            return new TennisResult("Advantage " + _game.player1Name, "");
         return _nextResult.GetResult();
     }
 }
@@ -161,7 +161,7 @@ internal class AdvantageReceiver : IResultProvider {
 
     public TennisResult GetResult() {
         if (_game.ReceiverHasAdvantage())
-            return new TennisResult("Advantage " + _game.Receiver, "");
+            return new TennisResult("Advantage " + _game.player2Name, "");
         return _nextResult.GetResult();
     }
 }
@@ -177,6 +177,6 @@ internal class DefaultResult : IResultProvider {
     }
 
     public TennisResult GetResult() {
-        return new TennisResult(Scores[_game.ServerScore], Scores[_game.ReceiverScore]);
+        return new TennisResult(Scores[_game.player1Score], Scores[_game.player2Score]);
     }
 }
