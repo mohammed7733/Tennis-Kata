@@ -6,6 +6,7 @@ public class TennisGame4  : ITennisGame
     internal int player2Score;
     internal readonly string player1Name;
     internal readonly string player2Name;
+    private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
     public TennisGame4(string player1Name, string player2Name)
     {
@@ -23,8 +24,23 @@ public class TennisGame4  : ITennisGame
 
     public string GetScore()
     {
-        TennisResult result = new Game(this).GetResult();
+        TennisResult result = GetResult();
         return FormatResult(result);
+    }
+
+    private TennisResult GetResult() {
+        
+        if (IsDeuce())
+            return new TennisResult("Deuce", "");
+        if (ServerHasWon())
+            return new TennisResult("Win for " + player1Name, "");
+        if(ReceiverHasWon())
+            return new TennisResult("Win for " + player2Name, "");
+        if (ServerHasAdvantage())
+            return new TennisResult("Advantage " + player1Name, "");
+        if (ReceiverHasAdvantage())
+            return new TennisResult("Advantage " + player2Name, "");
+        return new TennisResult(Scores[player1Score], Scores[player2Score]);
     }
 
     private string FormatResult(TennisResult result)
@@ -71,24 +87,8 @@ internal record TennisResult(string Player1Score, string Player2Score);
 
 internal class Game {
     private readonly TennisGame4 _game;
-    private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
     public Game(TennisGame4 game) {
         _game = game;
-    }
-
-    public TennisResult GetResult() {
-        
-        if (_game.IsDeuce())
-            return new TennisResult("Deuce", "");
-        if (_game.ServerHasWon())
-            return new TennisResult("Win for " + _game.player1Name, "");
-        if(_game.ReceiverHasWon())
-            return new TennisResult("Win for " + _game.player2Name, "");
-        if (_game.ServerHasAdvantage())
-            return new TennisResult("Advantage " + _game.player1Name, "");
-        if (_game.ReceiverHasAdvantage())
-            return new TennisResult("Advantage " + _game.player2Name, "");
-        return new TennisResult(Scores[_game.player1Score], Scores[_game.player2Score]);
     }
 }
