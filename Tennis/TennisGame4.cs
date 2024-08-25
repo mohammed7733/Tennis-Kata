@@ -24,11 +24,11 @@ public class TennisGame4  : ITennisGame
     public string GetScore()
     {
         TennisResult result = new Game(this).GetResult();
-        if ("".Equals(result._player2Score))
-            return result._player1Score;
-        if (result._player1Score.Equals(result._player2Score))
-            return result._player1Score + "-All";
-        return result._player1Score + "-" + result._player2Score;
+        if ("".Equals(result.Player2Score))
+            return result.Player1Score;
+        if (result.Player1Score.Equals(result.Player2Score))
+            return result.Player1Score + "-All";
+        return result.Player1Score + "-" + result.Player2Score;
     }
 
     internal bool ReceiverHasAdvantage() {
@@ -52,16 +52,7 @@ public class TennisGame4  : ITennisGame
     }
 }
 
-internal class TennisResult {
-    public readonly string _player1Score;
-    public readonly string _player2Score;
-
-    public TennisResult(string player1Score, string player2Score) {
-        _player1Score = player1Score;
-        _player2Score = player2Score;
-    }
-}
-
+internal record TennisResult(string Player1Score, string Player2Score);
 
 internal class Game {
     private readonly TennisGame4 _game;
