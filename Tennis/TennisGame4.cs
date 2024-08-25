@@ -34,10 +34,8 @@ public class TennisGame4  : ITennisGame
         
         if (IsDeuce())
             return new TennisResult("Deuce", "");
-        if (ServerHasWon())
-            return new TennisResult("Win for " + player1Name, "");
-        if(ReceiverHasWon())
-            return new TennisResult("Win for " + player2Name, "");
+        if (IsWinningScore())
+            return new TennisResult("Win for " + playerWithHigherScore(), "");
         if (IsAdvantageScore())
             return new TennisResult("Advantage " + playerWithHigherScore(), "");
         return new TennisResult(Scores[player1Score], Scores[player2Score]);
@@ -76,12 +74,8 @@ public class TennisGame4  : ITennisGame
         return player1Score >= 4 || player2Score >= 4;
     }
 
-    private bool ReceiverHasWon() {
-        return player2Score >= 4 && (player2Score - player1Score) >= 2;
-    }
-
-    private bool ServerHasWon() {
-        return player1Score >= 4 && (player1Score - player2Score) >= 2;
+    private bool IsWinningScore() {
+        return IsAboveForty() && Math.Abs(player1Score - player2Score) >= 2;
     }
 
     private bool IsDeuce() {
