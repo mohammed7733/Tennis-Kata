@@ -121,54 +121,6 @@ internal class Game : IResultProvider {
     }
 }
 
-internal class GameReceiver : IResultProvider {
-    private readonly TennisGame4 _game;
-    private readonly IResultProvider _nextResult;
-
-    public GameReceiver(TennisGame4 game, IResultProvider nextResult) {
-        _game = game;
-        _nextResult = nextResult;
-    }
-
-    public TennisResult GetResult() {
-        if (_game.ReceiverHasWon())
-            return new TennisResult("Win for " + _game.player2Name, "");
-        return _nextResult.GetResult();
-    }
-}
-
-internal class Advantage : IResultProvider {
-    private readonly TennisGame4 _game;
-    private readonly IResultProvider _nextResult;
-
-    public Advantage(TennisGame4 game, IResultProvider nextResult) {
-        _game = game;
-        _nextResult = nextResult;
-    }
-
-    public TennisResult GetResult() {
-        
-        return _nextResult.GetResult();
-    }
-}
-
-internal class AdvantageReceiver : IResultProvider {
-
-    private readonly TennisGame4 _game;
-    private readonly IResultProvider _nextResult;
-
-    public AdvantageReceiver(TennisGame4 game, IResultProvider nextResult) {
-        _game = game;
-        _nextResult = nextResult;
-    }
-
-    public TennisResult GetResult() {
-        if (_game.ReceiverHasAdvantage())
-            return new TennisResult("Advantage " + _game.player2Name, "");
-        return _nextResult.GetResult();
-    }
-}
-
 internal class DefaultResult : IResultProvider {
 
     private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
