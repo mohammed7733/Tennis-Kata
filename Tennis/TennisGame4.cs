@@ -65,9 +65,19 @@ internal class TennisResult {
     internal string Format() {
         if ("".Equals(_receiverScore))
             return _serverScore;
-        if (_serverScore.Equals(_receiverScore))
-            return _serverScore + "-All";
+        if (IsDrawScore())
+            return DrawScore();
         return _serverScore + "-" + _receiverScore;
+    }
+
+    private string DrawScore()
+    {
+        return _serverScore + "-All";
+    }
+
+    private bool IsDrawScore()
+    {
+        return _serverScore.Equals(_receiverScore);
     }
 }
 
