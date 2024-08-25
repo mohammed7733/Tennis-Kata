@@ -68,7 +68,12 @@ public class TennisGame4  : ITennisGame
     }
 
     private bool IsAdvantageScore() {
-        return (player1Score >= 4 || player2Score >= 4) && Math.Abs(player1Score - player2Score) == 1;
+        return IsAboveForty() && Math.Abs(player1Score - player2Score) == 1;
+    }
+
+    private bool IsAboveForty()
+    {
+        return player1Score >= 4 || player2Score >= 4;
     }
 
     private bool ReceiverHasWon() {
