@@ -24,11 +24,26 @@ public class TennisGame4  : ITennisGame
     public string GetScore()
     {
         TennisResult result = new Game(this).GetResult();
+        return FormatResult(result);
+    }
+
+    private string FormatResult(TennisResult result)
+    {
         if ("".Equals(result.Player2Score))
             return result.Player1Score;
-        if (player1Score.Equals(player2Score))
-            return result.Player1Score + "-All";
+        if (IsDraw())
+            return DrawScore(result);
         return result.Player1Score + "-" + result.Player2Score;
+    }
+
+    private static string DrawScore(TennisResult result)
+    {
+        return result.Player1Score + "-All";
+    }
+
+    private bool IsDraw()
+    {
+        return player1Score.Equals(player2Score);
     }
 
     internal bool ReceiverHasAdvantage() {
