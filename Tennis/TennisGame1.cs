@@ -32,7 +32,7 @@ namespace Tennis
                 return _player1.Score().DrawScore();
             }
 
-            if (_player1.Score().IsAbove3())
+            if (_player1.Score().IsAbove3() && _player1.HasHigherScore(_player2))
             {
                 return Above3Score(_player1);
             }
