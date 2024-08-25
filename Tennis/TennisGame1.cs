@@ -32,17 +32,22 @@ namespace Tennis
                 return _player1.Score().DrawScore();
             }
 
-            if (IsAbove4Score())
+            if (_player1.Score().IsAbove3())
             {
-                return Above4Score();
+                return Above3Score(_player1);
+            }
+
+            if (_player2.Score().IsAbove3())
+            {
+                return Above3Score(_player2);
             }
 
             return Below4Score();
         }
 
-        private bool IsAbove4Score()
+        private string Above3Score(Player player)
         {
-            return _player1.Score().IsAboveOrEqual4() || _player2.Score().IsAboveOrEqual4();
+            return IsAdvantageScore()? player.GetAdvantageScore() : WinnerScore();
         }
 
         private bool IsDrawScore()
@@ -52,14 +57,7 @@ namespace Tennis
 
         private string Below4Score() => _player1.Score().Name() + "-" + _player2.Score().Name();
 
-        private string Above4Score() =>
-            IsAdvantageScore() ? AdvantageScore() : WinnerScore();
-
-        private string WinnerScore() => "Win for " + GetHigherScorePlayer().GetName();
-
-        private string AdvantageScore() => "Advantage " + GetHigherScorePlayer().GetName();
-
-        private Player GetHigherScorePlayer() => _player1.HasHigherScore(_player2) ? _player1 : _player2;
+        private string WinnerScore() => "Win for " + (_player1.HasHigherScore(_player2) ? _player1 : _player2).GetName();
 
         private bool IsAdvantageScore() => _player1.Score().IsAdvantageScore(_player2.Score());
     }
@@ -94,6 +92,8 @@ namespace Tennis
         {
             return Score().Value() > player2.Score().Value();
         }
+
+        public string GetAdvantageScore() => "Advantage " + GetName();
     }
 
     public class Score
@@ -121,7 +121,7 @@ namespace Tennis
             return _value;
         }
 
-        public bool IsAboveOrEqual4()
+        public bool IsAbove3()
         {
             return _value >= 4;
         }
