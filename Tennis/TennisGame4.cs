@@ -23,7 +23,7 @@ public class TennisGame4  : ITennisGame
 
     public string GetScore()
     {
-        TennisResult result = new Game(this, new DefaultResult(this)).GetResult();
+        TennisResult result = new Game(this).GetResult();
         return result.Format();
     }
 
@@ -82,12 +82,10 @@ internal interface IResultProvider {
 
 internal class Game : IResultProvider {
     private readonly TennisGame4 _game;
-    private readonly IResultProvider _nextResult;
     private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
-    public Game(TennisGame4 game, IResultProvider nextResult) {
+    public Game(TennisGame4 game) {
         _game = game;
-        _nextResult = nextResult;
     }
 
     public TennisResult GetResult() {
