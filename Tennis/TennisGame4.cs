@@ -25,9 +25,8 @@ public class TennisGame4  : ITennisGame
     {
         TennisResult result = new Deuce(
             this, new Game(
-                    this, new Advantage(
                             this, new DefaultResult(this))
-            )).GetResult();
+            ).GetResult();
         return result.Format();
     }
 
@@ -112,8 +111,12 @@ internal class Game : IResultProvider {
     public TennisResult GetResult() {
         if (_game.ServerHasWon())
             return new TennisResult("Win for " + _game.player1Name, "");
-        else if(_game.ReceiverHasWon())
+        if(_game.ReceiverHasWon())
             return new TennisResult("Win for " + _game.player2Name, "");
+        if (_game.ServerHasAdvantage())
+            return new TennisResult("Advantage " + _game.player1Name, "");
+        if (_game.ReceiverHasAdvantage())
+            return new TennisResult("Advantage " + _game.player2Name, "");
         return _nextResult.GetResult();
     }
 }
@@ -144,10 +147,7 @@ internal class Advantage : IResultProvider {
     }
 
     public TennisResult GetResult() {
-        if (_game.ServerHasAdvantage())
-            return new TennisResult("Advantage " + _game.player1Name, "");
-        else if (_game.ReceiverHasAdvantage())
-            return new TennisResult("Advantage " + _game.player2Name, "");
+        
         return _nextResult.GetResult();
     }
 }
