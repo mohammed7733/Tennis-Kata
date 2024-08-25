@@ -23,10 +23,7 @@ public class TennisGame4  : ITennisGame
 
     public string GetScore()
     {
-        TennisResult result = new Deuce(
-            this, new Game(
-                            this, new DefaultResult(this))
-            ).GetResult();
+        TennisResult result = new Game(this, new DefaultResult(this)).GetResult();
         return result.Format();
     }
 
@@ -83,22 +80,6 @@ internal interface IResultProvider {
     TennisResult GetResult();
 }
 
-internal class Deuce : IResultProvider {
-    private readonly TennisGame4 _game;
-    private readonly IResultProvider _nextResult;
-
-    public Deuce(TennisGame4 game, IResultProvider nextResult) {
-        _game = game;
-        _nextResult = nextResult;
-    }
-
-    public TennisResult GetResult() {
-        if (_game.IsDeuce())
-            return new TennisResult("Deuce", "");
-        return _nextResult.GetResult();
-    }
-}
-
 internal class Game : IResultProvider {
     private readonly TennisGame4 _game;
     private readonly IResultProvider _nextResult;
@@ -109,6 +90,8 @@ internal class Game : IResultProvider {
     }
 
     public TennisResult GetResult() {
+        if (_game.IsDeuce())
+            return new TennisResult("Deuce", "");
         if (_game.ServerHasWon())
             return new TennisResult("Win for " + _game.player1Name, "");
         if(_game.ReceiverHasWon())
