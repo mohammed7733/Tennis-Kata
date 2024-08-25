@@ -35,9 +35,9 @@ public class TennisGame4  : ITennisGame
         if (IsDeuce())
             return new TennisResult("Deuce", "");
         if (IsWinningScore())
-            return new TennisResult("Win for " + playerWithHigherScore(), "");
+            return new TennisResult("Win for " + PlayerWithHigherScore(), "");
         if (IsAdvantageScore())
-            return new TennisResult("Advantage " + playerWithHigherScore(), "");
+            return new TennisResult("Advantage " + PlayerWithHigherScore(), "");
         return new TennisResult(Scores[player1Score], Scores[player2Score]);
     }
 
@@ -50,7 +50,7 @@ public class TennisGame4  : ITennisGame
         return result.Player1Score + "-" + result.Player2Score;
     }
 
-    private string playerWithHigherScore()
+    private string PlayerWithHigherScore()
     {
         return player1Score >= player2Score ? player1Name : player2Name;
     }
