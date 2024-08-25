@@ -76,11 +76,8 @@ internal class TennisResult {
     }
 }
 
-internal interface IResultProvider {
-    TennisResult GetResult();
-}
 
-internal class Game : IResultProvider {
+internal class Game {
     private readonly TennisGame4 _game;
     private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
