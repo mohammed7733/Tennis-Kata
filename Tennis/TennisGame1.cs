@@ -47,7 +47,7 @@ namespace Tennis
 
         private string Above3Score(Player player)
         {
-            return IsAdvantageScore()? player.GetAdvantageScore() : WinnerScore();
+            return IsAdvantageScore()? player.GetAdvantageScore() : player.GetWinnerScore();
         }
 
         private bool IsDrawScore()
@@ -56,8 +56,6 @@ namespace Tennis
         }
 
         private string Below4Score() => _player1.Score().Name() + "-" + _player2.Score().Name();
-
-        private string WinnerScore() => "Win for " + (_player1.HasHigherScore(_player2) ? _player1 : _player2).GetName();
 
         private bool IsAdvantageScore() => _player1.Score().IsAdvantageScore(_player2.Score());
     }
@@ -94,6 +92,7 @@ namespace Tennis
         }
 
         public string GetAdvantageScore() => "Advantage " + GetName();
+        public string GetWinnerScore() => "Win for " + GetName();
     }
 
     public class Score
