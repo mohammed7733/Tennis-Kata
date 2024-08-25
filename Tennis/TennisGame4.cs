@@ -83,6 +83,7 @@ internal interface IResultProvider {
 internal class Game : IResultProvider {
     private readonly TennisGame4 _game;
     private readonly IResultProvider _nextResult;
+    private static readonly string[] Scores = {"Love", "Fifteen", "Thirty", "Forty"};
 
     public Game(TennisGame4 game, IResultProvider nextResult) {
         _game = game;
@@ -90,6 +91,7 @@ internal class Game : IResultProvider {
     }
 
     public TennisResult GetResult() {
+        
         if (_game.IsDeuce())
             return new TennisResult("Deuce", "");
         if (_game.ServerHasWon())
@@ -100,7 +102,7 @@ internal class Game : IResultProvider {
             return new TennisResult("Advantage " + _game.player1Name, "");
         if (_game.ReceiverHasAdvantage())
             return new TennisResult("Advantage " + _game.player2Name, "");
-        return _nextResult.GetResult();
+        return new TennisResult(Scores[_game.player1Score], Scores[_game.player2Score]);
     }
 }
 
